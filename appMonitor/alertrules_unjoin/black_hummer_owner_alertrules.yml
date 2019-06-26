@@ -1,0 +1,65 @@
+groups:
+- name: tmsgroup
+  rules:
+  - alert: 数据库连接告警(black-hummer)
+    expr: health_datasource{job="black-hummer",name="status"} == 1
+    for: 1m
+    labels:
+      team: tms
+    annotations:
+      summary: "应用 {{ $labels.job }} 数据库连接异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} 数据库连接异常，状态持续已超过1分钟，请及时检查。"
+
+  - alert: Dubbo连接告警(black-hummer)
+    expr: health_dubbo{job="black-hummer",name="status"} == 1
+    for: 1m
+    labels:
+      team: tms
+    annotations:
+      summary: "应用 {{ $labels.job }} Dubbo连接异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} Dubbo连接异常，状态持续已超过1分钟，请及时检查。"
+
+  - alert: Redis连接告警(black-hummer)
+    expr: health_redis{job="black-hummer",name="status"} == 1
+    for: 1m
+    labels:
+      team: tms
+    annotations:
+      summary: "应用 {{ $labels.job }} Redis连接异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} Redis连接异常，状态持续已超过1分钟，请及时检查。"
+
+  - alert: RocketMQ连接告警(black-hummer)
+    expr: health_rocketMQ{job="black-hummer",name="status"} == 1
+    for: 1m
+    labels:
+      team: tms
+    annotations:
+      summary: "应用 {{ $labels.job }} RocketMQ连接异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} RocketMQ连接异常，状态持续已超过1分钟，请及时检查。"
+
+  - alert: Apollo连接告警(black-hummer)
+    expr: health_apollo{job="black-hummer",name="status"} == 1
+    for: 1m
+    labels:
+      team: tms
+    annotations:
+      summary: "应用 {{ $labels.job }} Apollo连接异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} Apollo连接异常，状态持续已超过1分钟，请及时检查。"
+
+  - alert: 错误日志过多告警(black-hummer)
+    expr: logback_events_total{job="black-hummer", level="error"} - (logback_events_total{job="black-hummer", level="error"} offset 10m) > 300
+    for: 1m
+    labels:
+      team: tms
+    annotations:
+      summary: "应用 {{ $labels.job }} 错误日志过多异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} 错误日志10分钟内产生超过300条，状态持续已超过1分钟，请及时检查。"
+
+  - alert: 警告日志过多告警(black-hummer)
+    expr: logback_events_total{job="black-hummer", level="warn"} - (logback_events_total{job="black-hummer", level="warn"} offset 10m) > 500
+    for: 1m
+    labels:
+      team: tms
+    annotations:
+      summary: "应用 {{ $labels.job }} 警告日志过多异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} 警告日志10分钟内产生超过500条，状态持续已超过1分钟，请及时检查。"

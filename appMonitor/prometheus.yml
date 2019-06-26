@@ -1,0 +1,2441 @@
+# my global config
+global:
+  scrape_interval:     1m # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 1m # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - 127.0.0.1:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  - "/etc/prometheus/alertrules/*_alertrules.yml"
+  # - "malibu_test_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  # - job_name: 'node'
+  #   static_configs:
+  #   - targets: ['localhost:9100']
+  - job_name: 'cloan-haval'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.110:8889']
+  - job_name: 'cloan-haval2'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.110:8002']
+  - job_name: 'cloan-suzuki'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.110:8999']
+  - job_name: 'cloan-suzuki2'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.110:8087']
+  - job_name: 'cloan-bee'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.110:8093']
+  - job_name: 'cloan-optimus'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.110:9007']
+  - job_name: 'allah-buick'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:9000']
+  - job_name: 'black-buick'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:9000']
+  - job_name: 'buddha-buick'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:9000']
+  - job_name: 'finance-buick'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8011']
+  - job_name: 'god-buick'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:9000']
+  - job_name: 'sell-buick'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8000']
+  - job_name: 'wms-buick'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.80:8000']
+  - job_name: 'y-buick'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:9000']
+  - job_name: 'allah-infiniti'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8030']
+  - job_name: 'sell-infiniti'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8030']
+  - job_name: 'y-infiniti'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8030']
+  - job_name: 'allah-acura'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8001']
+  - job_name: 'black-acura'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8001']
+  - job_name: 'buddha-acura'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8001']
+  - job_name: 'finance-acura'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8013']
+  - job_name: 'god-acura'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8001']
+  - job_name: 'wms-acura'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8005']
+  - job_name: 'y-acura'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8001']
+  - job_name: 'allah-camaro'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8021']
+  - job_name: 'black-camaro'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8021']
+  - job_name: 'buddha-camaro'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8021']
+  - job_name: 'finance-camaro'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8021']
+  - job_name: 'god-camaro'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8081']
+  - job_name: 'sell-camaro'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8021']
+  - job_name: 'wms-camaro'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.80:8081']
+  - job_name: 'y-camaro'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8021']
+  - job_name: 'black-chevrolet'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8019']
+  - job_name: 'buddha-chevrolet'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.246:8019']
+  - job_name: 'finance-chevrolet'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8309']
+  - job_name: 'god-chevrolet'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.197:8019']
+  - job_name: 'sell-chevrolet'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8019']
+  - job_name: 'wms-chevrolet'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.80:8509']
+  - job_name: 'y-chevrolet'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8019']
+  - job_name: 'allah-commonservice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:8080']
+  - job_name: 'black-commonservice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:9006']
+  - job_name: 'buddha-commonservice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:9006']
+  - job_name: 'finance-commonservice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:9906']
+  - job_name: 'god-commonservice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:9096']
+  - job_name: 'sell-commonservice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:9006']
+  - job_name: 'wms-commonservice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.235:9096']
+  - job_name: 'y-commonservice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:9006']
+  - job_name: 'allah-prado'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.9:8203']
+  - job_name: 'black-prado'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.2:8203']
+  - job_name: 'buddha-prado'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.209:8203']
+  - job_name: 'finance-prado'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8203']
+  - job_name: 'sell-prado'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.65:8203']
+  - job_name: 'wms-prado'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.247:8203']
+  - job_name: 'y-prado'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.6:8023']
+  - job_name: 'allah-pasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8050']
+  - job_name: 'black-pasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.2:8050']
+  - job_name: 'buddha-pasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.209:8050']
+  - job_name: 'finance-pasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8050']
+  - job_name: 'sell-pasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8050']
+  - job_name: 'wms-pasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8050']
+  - job_name: 'y-pasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.8:8050']
+  - job_name: 'buddha-gwmustang'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.210:8787']
+  - job_name: 'buddha-mustang'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8091']
+  - job_name: 'finance-gwmustang'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.131:8787']
+  - job_name: 'finance-mustang'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.131:8050']
+  - job_name: 'god-gwmustang'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.193:8051']
+  - job_name: 'god-mustang'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.193:8050']
+  - job_name: 'allah-evo'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8200']
+  - job_name: 'black-evo'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8200']
+  - job_name: 'buddha-evo'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.209:8200']
+  - job_name: 'finance-evo'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.248:8200']
+  - job_name: 'god-evo'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.197:8200']
+  - job_name: 'sell-evo'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8200']
+  - job_name: 'wms-evo'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8200']
+  - job_name: 'y-evo'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8200']
+  - job_name: 'allah-magotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8072']
+  - job_name: 'black-magotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.20:8072']
+  - job_name: 'buddha-magotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.209:8072']
+  - job_name: 'finance-magotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.248:8072']
+  - job_name: 'sell-magotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8072']
+  - job_name: 'wms-magotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8072']
+  - job_name: 'y-magotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8072']
+  - job_name: 'allah-chairman'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.9:8079']
+  - job_name: 'black-chairman'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8079']
+  - job_name: 'buddha-chairman'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.209:8079']
+  - job_name: 'finance-chairman'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8079']
+  - job_name: 'sell-chairman'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8079']
+  - job_name: 'y-chairman'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8079']
+  - job_name: 'allah-skoda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:8015']
+  - job_name: 'black-skoda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8015']
+  - job_name: 'buddha-skoda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8015']
+  - job_name: 'finance-skoda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8007']
+  - job_name: 'god-skoda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8015']
+  - job_name: 'sell-skoda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8015']
+  - job_name: 'wms-skoda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8015']
+  - job_name: 'y-skoda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8015']
+  - job_name: 'allah-trumpchi'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:8012']
+  - job_name: 'black-trumpchi'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8012']
+  - job_name: 'buddha-trumpchi'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.246:8012']
+  - job_name: 'finance-trumpchi'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8012']
+  - job_name: 'god-trumpchi'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8012']
+  - job_name: 'sell-trumpchi'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8012']
+  - job_name: 'wms-trumpchi'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8012']
+  - job_name: 'y-trumpchi'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8012']
+  - job_name: 'allah-venucia'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8013']
+  - job_name: 'black-venucia'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8013']
+  - job_name: 'buddha-venucia'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.250:8013']
+  - job_name: 'finance-venucia'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8080']
+  - job_name: 'god-venucia'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.197:8013']
+  - job_name: 'sell-venucia'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8013']
+  - job_name: 'wms-venucia'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8094']
+  - job_name: 'y-venucia'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8013']
+  - job_name: 'allah-geely'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:8017']
+  - job_name: 'black-geely'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8017']
+  - job_name: 'buddha-geely'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.246:8017']
+  - job_name: 'finance-geely'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8000']
+  - job_name: 'god-geely'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.197:8017']
+  - job_name: 'sell-geely'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8017']
+  - job_name: 'wms-geely'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8017']
+  - job_name: 'y-geely'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8017']
+  - job_name: 'allah-spyker'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:8014']
+  - job_name: 'black-spyker'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.20:8014']
+  - job_name: 'buddha-spyker'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.246:8014']
+  - job_name: 'finance-spyker'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.238:8082']
+  - job_name: 'god-spyker'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.197:8014']
+  - job_name: 'sell-spyker'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.65:8014']
+  - job_name: 'wms-spyker'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8024']
+  - job_name: 'y-spyker'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8014']
+  - job_name: 'allah-gtr'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.9:8018']
+  - job_name: 'black-gtr'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.2:8018']
+  - job_name: 'buddha-gtr'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8018']
+  - job_name: 'finance-gtr'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.248:8006']
+  - job_name: 'god-gtr'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8018']
+  - job_name: 'sell-gtr'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8018']
+  - job_name: 'wms-gtr'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8006']
+  - job_name: 'y-gtr'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.6:8018']
+  - job_name: 'allah-tida'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:8010']
+  - job_name: 'black-tida'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8010']
+  - job_name: 'buddha-tida'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8010']
+  - job_name: 'finance-tida'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8005']
+  - job_name: 'god-tida'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8010']
+  - job_name: 'sell-tida'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8010']
+  - job_name: 'wms-tida'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8099']
+  - job_name: 'y-tida'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8010']
+  - job_name: 'allah-mazda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.9:8008']
+  - job_name: 'black-mazda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8008']
+  - job_name: 'buddha-mazda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8008']
+  - job_name: 'finance-mazda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:7018']
+  - job_name: 'god-mazda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8008']
+  - job_name: 'sell-mazda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8026']
+  - job_name: 'wms-mazda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8018']
+  - job_name: 'y-mazda'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8008']
+  - job_name: 'allah-lynk'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8071']
+  - job_name: 'black-lynk'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8071']
+  - job_name: 'buddha-lynk'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.246:8071']
+  - job_name: 'finance-lynk'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.131:8070']
+  - job_name: 'god-lynk'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8071']
+  - job_name: 'sell-lynk'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8071']
+  - job_name: 'wms-lynk'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8071']
+  - job_name: 'y-lynk'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.6:8071']
+  - job_name: 'allah-fiat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8004']
+  - job_name: 'black-fiat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.43:8004']
+  - job_name: 'buddha-fiat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8004']
+  - job_name: 'finance-fiat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8002']
+  - job_name: 'finance-fiat105'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['crm-105:8071']
+  - job_name: 'god-fiat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8004']
+  - job_name: 'sell-fiat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8004']
+  - job_name: 'wms-fiat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8008']
+  - job_name: 'y-fiat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8004']
+  - job_name: 'allah-crown'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8073']
+  - job_name: 'black-crown'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8025']
+  - job_name: 'buddha-crown'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.246:8073']
+  - job_name: 'finance-crown'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.131:8073']
+  - job_name: 'god-crown'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.197:8073']
+  - job_name: 'sell-crown'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.65:8073']
+  - job_name: 'wms-crown'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.247:8073']
+  - job_name: 'y-crown'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.6:8073']
+  - job_name: 'allah-lincoln'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.9:8024']
+  - job_name: 'black-lincoln'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.20:8022']
+  - job_name: 'buddha-lincoln'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.250:8022']
+  - job_name: 'finance-lincoln'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8001']
+  - job_name: 'sell-lincoln'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8022']
+  - job_name: 'wms-lincoln'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8022']
+  - job_name: 'y-lincoln'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8022']
+  - job_name: 'allah-gwmagotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8049']
+  - job_name: 'black-gwmagotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.2:8049']
+  - job_name: 'buddha-gwmagotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.209:8049']
+  - job_name: 'finance-gwmagotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.248:8049']
+  - job_name: 'sell-gwmagotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8049']
+  - job_name: 'y-gwmagotan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8049']
+  - job_name: 'allah-gwpasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8051']
+  - job_name: 'black-gwpasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.2:8051']
+  - job_name: 'buddha-gwpasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.209:8051']
+  - job_name: 'finance-gwpasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8051']
+  - job_name: 'sell-gwpasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8051']
+  - job_name: 'y-gwpasaat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.8:8051']
+  - job_name: 'allah-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.9:8075']
+  - job_name: 'black-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8075']
+  - job_name: 'buddha-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.239:8075']
+  - job_name: 'finance-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.238:8075']
+  - job_name: 'god-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8075']
+  - job_name: 'sell-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.65:8075']
+  - job_name: 'wms-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.80:8075']
+  - job_name: 'y-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.6:8075']
+  - job_name: 'buddha-gwspyker'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8051']
+  - job_name: 'finance-gwspyker'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.238:8051']
+  - job_name: 'allah-seat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:8007']
+  - job_name: 'black-seat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8007']
+  - job_name: 'buddha-seat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.246:8007']
+  - job_name: 'finance-seat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8004']
+  - job_name: 'god-seat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.197:8007']
+  - job_name: 'sell-seat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8007']
+  - job_name: 'wms-seat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8107']
+  - job_name: 'y-seat'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8007']
+  - job_name: 'allah-ds'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:8003']
+  - job_name: 'black-ds'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8003']
+  - job_name: 'buddha-ds'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8003']
+  - job_name: 'finance-ds'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.238:8091']
+  - job_name: 'god-ds'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8003']
+  - job_name: 'sell-ds'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8011']
+  - job_name: 'wms-ds'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8003']
+  - job_name: 'y-ds'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8003']
+  - job_name: 'allah-saab'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.235:8068']
+  - job_name: 'y-saab'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.197:8067']
+  - job_name: 'buddha-rim'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.239:8029']
+  - job_name: 'sell-rim'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8029']
+  - job_name: 'buddha-kia'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.239:8028']
+  - job_name: 'sell-kia'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8028']
+  - job_name: 'allah-landrover'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8089']
+  - job_name: 'buddha-landrover'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8074']
+  - job_name: 'god-landrover'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8074']
+  - job_name: 'sell-landrover'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8021']
+  - job_name: 'y-landrover'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8074']
+  - job_name: 'allah-gwmini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8052']
+  - job_name: 'allah-mini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8011']
+  - job_name: 'black-gwmini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.20:8052']
+  - job_name: 'black-mini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8011']
+  - job_name: 'buddha-gwmini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.209:8052']
+  - job_name: 'buddha-mini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8011']
+  - job_name: 'finance-gwmini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.248:8052']
+  - job_name: 'finance-mini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.248:8008']
+  - job_name: 'god-mini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8011']
+  - job_name: 'sell-gwmini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8052']
+  - job_name: 'sell-mini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8001']
+  - job_name: 'sell-mini44'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8001']
+  - job_name: 'wms-mini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8055']
+  - job_name: 'y-gwmini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.8:8052']
+  - job_name: 'y-mini'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.6:8005']
+  - job_name: 'allah-tesla'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.9:8020']
+  - job_name: 'black-tesla'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8020']
+  - job_name: 'buddha-tesla'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8020']
+  - job_name: 'finance-tesla'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8127']
+  - job_name: 'god-tesla'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8020']
+  - job_name: 'sell-tesla'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8007']
+  - job_name: 'sell-tesla44'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8022']
+  - job_name: 'wms-tesla'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8032']
+  - job_name: 'y-tesla'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8020']
+  - job_name: 'allah-volks'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8002']
+  - job_name: 'black-volks'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8002']
+  - job_name: 'buddha-volks'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8002']
+  - job_name: 'finance-volks'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8017']
+  - job_name: 'god-volks'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8002']
+  - job_name: 'wms-volks'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8011']
+  - job_name: 'y-volks'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.6:8002']
+  - job_name: 'allah-maybach'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.9:8009']
+  - job_name: 'black-maybach'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8009']
+  - job_name: 'buddha-maybach'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8009']
+  - job_name: 'finance-maybach'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8003']
+  - job_name: 'god-maybach'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8009']
+  - job_name: 'sell-maybach'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8002']
+  - job_name: 'sell-maybach44'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8003']
+  - job_name: 'wms-maybach'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8001']
+  - job_name: 'y-maybach'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.6:8001']
+  - job_name: 'buddha-kaima'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.239:8032']
+  - job_name: 'sell-kaima'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8032']
+  - job_name: 'allah-lite'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:8026']
+  - job_name: 'black-lite'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8026']
+  - job_name: 'buddha-lite'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8087']
+  - job_name: 'finance-lite'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.238:8025']
+  - job_name: 'god-lite'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8025']
+  - job_name: 'sell-lite'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8025']
+  - job_name: 'wms-lite'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.235:8025']
+  - job_name: 'y-lite'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8025']
+  - job_name: 'allah-polestar'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.17:8027']
+  - job_name: 'finance-polestar'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8027']
+  - job_name: 'sell-polestar'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8027']
+  - job_name: 'y-polestar'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.8:8027']
+  - job_name: 'allah-chrysler'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8031']
+  - job_name: 'black-chrysler'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.20:8031']
+  - job_name: 'buddha-chrysler'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.239:8031']
+  - job_name: 'finance-chrysler'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.248:8031']
+  - job_name: 'god-chrysler'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8031']
+  - job_name: 'sell-chrysler'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8031']
+  - job_name: 'wms-chrysler'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.235:8031']
+  - job_name: 'y-chrysler'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.6:8031']
+  - job_name: 'allah-foton'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8308']
+  - job_name: 'god-foton'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8308']
+  - job_name: 'wms-foton'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8086']
+  - job_name: 'y-foton'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8308']
+  - job_name: 'allah-hummer'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8005']
+  - job_name: 'black-hummer'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.43:8005']
+  - job_name: 'buddha-hummer'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.250:8005']
+  - job_name: 'finance-hummer'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8010']
+  - job_name: 'god-hummer'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8005']
+  - job_name: 'sell-hummer'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8003']
+  - job_name: 'wms-hummer'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.247:8002']
+  - job_name: 'y-hummer'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8005']
+  - job_name: 'allah-jac'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8207']
+  - job_name: 'black-jac'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.2:8207']
+  - job_name: 'god-jac'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8027']
+  - job_name: 'wms-jac'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.80:8207']
+  - job_name: 'y-jac'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8207']
+  - job_name: 'buddha-howo'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8050']
+  - job_name: 'god-howo'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.197:8050']
+  - job_name: 'allah-mclaren'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8206']
+  - job_name: 'black-mclaren'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.43:8206']
+  - job_name: 'buddha-mclaren'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.250:8006']
+  - job_name: 'finance-mclaren'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8014']
+  - job_name: 'god-mclaren'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8006']
+  - job_name: 'sell-mclaren'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.106:8006']
+  - job_name: 'wms-mclaren'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.235:8014']
+  - job_name: 'y-mclaren'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8206']
+  - job_name: 'allah-eye'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.15:8085']
+  - job_name: 'black-eye'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.2:8085']
+  - job_name: 'buddha-eye'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.209:8085']
+  - job_name: 'god-eye'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8085']
+  - job_name: 'sell-eye'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8185']
+  - job_name: 'wms-eye'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.80:8185']
+  - job_name: 'y-eye'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8085']
+  - job_name: 'allah-koenigsegg'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.18.0.9:8016']
+  - job_name: 'black-koenigsegg'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.9:8088']
+  - job_name: 'buddha-koenigsegg'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8033']
+  - job_name: 'finance-koenigsegg'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.48:8088']
+  - job_name: 'god-koenigsegg'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8016']
+  - job_name: 'sell-koenigsegg'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8033']
+  - job_name: 'wms-koenigsegg'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.104:8007']
+  - job_name: 'y-koenigsegg'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.7:8033']
+  - job_name: 'wms-eado'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.247:9086']
+  - job_name: 'black-gwdevice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.2:8085']
+  - job_name: 'buddha-gwdevice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.96:8085']
+  - job_name: 'sell-gwdevice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.44:8085']
+  - job_name: 'y-gwdevice'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.22.0.14:8085']
+  - job_name: 'wms-senna'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.247:8085']
+  - job_name: 'wms-gwsenna'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.161:8080']
+  - job_name: 'wms-gwcullinan'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.235:8032']

@@ -1,0 +1,62 @@
+version: "3"
+services:
+
+  prometheus:
+    image: reg.haimaiche.net/framework/prometheus:2.6.0
+    container_name: prometheus
+    network_mode: "host"
+    restart: on-failure
+    entrypoint:
+      - /bin/prometheus
+      - --web.enable-lifecycle
+    ports:
+      - "9090:9090"
+    user: root
+    volumes:
+      - /opt/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+      - /opt/prometheus/prometheus-data:/prometheus
+      - /opt/prometheus/alertrules:/etc/prometheus/alertrules
+
+
+  grafana:
+    image: reg.haimaiche.net/framework/grafana:5.4.2
+    container_name: grafana
+    network_mode: "host"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - prometheus
+    restart: on-failure
+    user: root
+    volumes:
+      - /opt/prometheus/grafana/data:/var/lib/grafana
+      - /opt/prometheus/grafana/conf:/etc/grafana/
+      - /opt/prometheus/grafana/log:/var/log/grafana
+
+
+  alertmanager:
+    image: reg.haimaiche.net/framework/prom-alertmanager:0.16.0
+    container_name: alertmanager
+    network_mode: "host"
+    restart: on-failure
+    volumes:
+      - /opt/prometheus/alertmanager.yml:/etc/alertmanager/alertmanager.yml
+
+
+  dingtalkhook:
+    image: reg.haimaiche.net/framework/prometheus-webhook-dingtalk:1.0.0
+    container_name: dingtalkhook
+    network_mode: "host"
+    restart: on-failure
+    ports:
+      - "8060:8060"
+    entrypoint:
+      - /bin/prometheus-webhook-dingtalk
+      - --ding.profile=webhookops=https://oapi.dingtalk.com/robot/send?access_token=9191ebb115ae870ac7eacb5377fe89cdd4c0f1d6c5a9a0ca02a7ca8313655a84
+      - --ding.profile=webhookloan=https://oapi.dingtalk.com/robot/send?access_token=585b25225aa64177e1cdb2c490eae9e8b000ebbb71fa77086ac80e1251466bce
+      - --ding.profile=webhookwms=https://oapi.dingtalk.com/robot/send?access_token=c81f157c338af13298138a3f85ad51740a585fed1d20465af4d37c56bb73c213
+      - --ding.profile=webhooktms=https://oapi.dingtalk.com/robot/send?access_token=df8646b2d8e2a8afcd24c9495c6cacbb6ab46a1ca25ce404ead76fdf27becf1e
+      - --ding.profile=webhooksell=https://oapi.dingtalk.com/robot/send?access_token=d5d15232628b7b9eba36e58430b53a9994d32b90d19f9b14532477c968687d44
+      - --ding.profile=webhookframe=https://oapi.dingtalk.com/robot/send?access_token=42ea056ea09fb434ce92e5fd6195372178a3dbd0afe8e77b6c3d6960b7fbbe9b
+      - --ding.profile=webhookcloan=https://oapi.dingtalk.com/robot/send?access_token=c5fe3562554e7ae8e2de2bdadefb34d715e2b9476a0d221c170b7225f2b01987
+      - --ding.profile=webhookpay=https://oapi.dingtalk.com/robot/send?access_token=102c932fc600a44ac06258713cd282ae0185e5dc5dedc09391602889b7bf7a28

@@ -1,0 +1,75 @@
+# my global config
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 30s # Evaluate rules every 15 seconds. The default is every 1 minute.
+  # scrape_timeout is set to the global default (10s).
+
+# Alertmanager configuration
+alerting:
+  alertmanagers:
+  - static_configs:
+    - targets:
+      - 127.0.0.1:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+  - "/etc/prometheus/alertrules/*_alertrules.yml"
+  # - "malibu_test_rules.yml"
+  # - "second_rules.yml"
+
+# A scrape configuration containing exactly one endpoint to scrape:
+# Here it's Prometheus itself.
+scrape_configs:
+  # The job name is added as a label `job=<job_name>` to any timeseries scraped from this config.
+  # - job_name: 'node'
+  #   static_configs:
+  #   - targets: ['localhost:9100']
+  - job_name: 'god-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.99:8075']
+  - job_name: 'y-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['118.89.141.28:8075']
+  - job_name: 'wms-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.80:8075']
+  - job_name: 'sell-malibu'
+    metrics_path: /mhc_health/prometheus
+    basic_auth:
+      username: admin
+      password: s347N2rdW4oX9LJr
+    static_configs:
+    - targets: ['172.21.10.65:8075']
+
+  # - job_name: 'server-rank'
+  #   metrics_path: /mhc_health/prometheus
+  #   static_configs:
+  #   - targets: ['localhost:8086']
+
+  # - job_name: consul_node
+  #   metrics_path: /mhc_health/prometheus
+  #   scheme: http
+  #   consul_sd_configs:
+  #     - server: 172.21.10.49:8500
+  #   relabel_configs:
+  #   - source_labels: ["__meta_consul_service_id"]
+  #     target_label: "service_id"
+  #   - source_labels: ["__meta_consul_service_id"]
+  #     regex: "landrover-(.+)|consul"
+  #     action: drop
+  #   - source_labels: ["__meta_consul_tags"]
+  #     target_label: "env"
+
+

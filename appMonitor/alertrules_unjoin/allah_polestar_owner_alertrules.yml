@@ -1,0 +1,65 @@
+groups:
+- name: tradegroup
+  rules:
+  - alert: 数据库连接告警(allah-polestar)
+    expr: health_datasource{job="allah-polestar",name="status"} == 1
+    for: 1m
+    labels:
+      team: trade
+    annotations:
+      summary: "应用 {{ $labels.job }} 数据库连接异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} 数据库连接异常，状态持续已超过1分钟，请及时检查。"
+
+  - alert: Dubbo连接告警(allah-polestar)
+    expr: health_dubbo{job="allah-polestar",name="status"} == 1
+    for: 1m
+    labels:
+      team: trade
+    annotations:
+      summary: "应用 {{ $labels.job }} Dubbo连接异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} Dubbo连接异常，状态持续已超过1分钟，请及时检查。"
+
+  - alert: Redis连接告警(allah-polestar)
+    expr: health_redis{job="allah-polestar",name="status"} == 1
+    for: 1m
+    labels:
+      team: trade
+    annotations:
+      summary: "应用 {{ $labels.job }} Redis连接异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} Redis连接异常，状态持续已超过1分钟，请及时检查。"
+
+  - alert: RocketMQ连接告警(allah-polestar)
+    expr: health_rocketMQ{job="allah-polestar",name="status"} == 1
+    for: 1m
+    labels:
+      team: trade
+    annotations:
+      summary: "应用 {{ $labels.job }} RocketMQ连接异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} RocketMQ连接异常，状态持续已超过1分钟，请及时检查。"
+
+  - alert: Apollo连接告警(allah-polestar)
+    expr: health_apollo{job="allah-polestar",name="status"} == 1
+    for: 1m
+    labels:
+      team: trade
+    annotations:
+      summary: "应用 {{ $labels.job }} Apollo连接异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} Apollo连接异常，状态持续已超过1分钟，请及时检查。"
+
+  - alert: 错误日志过多告警(allah-polestar)
+    expr: logback_events_total{job="allah-polestar", level="error"} - (logback_events_total{job="allah-polestar", level="error"} offset 10m) > 300
+    for: 1m
+    labels:
+      team: trade
+    annotations:
+      summary: "应用 {{ $labels.job }} 错误日志过多异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} 错误日志10分钟内产生超过300条，状态持续已超过1分钟，请及时检查。"
+
+  - alert: 警告日志过多告警(allah-polestar)
+    expr: logback_events_total{job="allah-polestar", level="warn"} - (logback_events_total{job="allah-polestar", level="warn"} offset 10m) > 500
+    for: 1m
+    labels:
+      team: trade
+    annotations:
+      summary: "应用 {{ $labels.job }} 警告日志过多异常"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} 警告日志10分钟内产生超过500条，状态持续已超过1分钟，请及时检查。"

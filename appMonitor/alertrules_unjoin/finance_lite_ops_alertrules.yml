@@ -1,0 +1,30 @@
+groups:
+- name: tradegroup
+  rules:
+  - alert: 运行状态告警(finance-lite)
+    expr: up{job="finance-lite"} == 0
+    for: 2m
+    labels:
+      team: trade
+      server_status: ss
+    annotations:
+      summary: "实例 {{ $labels.instance }} 下线"
+      description: "{{ $labels.instance }} 的应用 {{ $labels.job }} 已经下线超过2分钟，请及时检查。"
+
+  - alert: CPU使用率告警(finance-lite)
+    expr: system_cpu_usage{job="finance-lite"} > 0.90
+    for: 1m
+    labels:
+      team: trade
+    annotations:
+      summary: "实例 {{ $labels.instance }} CPU使用率告警"
+      description: "实例 {{ $labels.instance }} 的CPU使用率超过90%，状态已持续1分钟，请及时检查。"
+
+  - alert: JVM内存使用率告警(finance-lite)
+    expr: 100-(sum(jvm_memory_used_bytes{job="finance-lite"})*100/sum(jvm_memory_max_bytes{job="finance-lite"})) < 15
+    for: 1m
+    labels:
+      team: trade
+    annotations:
+      summary: "应用 {{ $labels.job }} JVM剩余内存告警"
+      description: "实例{{ $labels.instance }} 的应用 {{ $labels.job }} JVM 内存剩余小于15%，状态已持续1分钟，请及时检查。"
